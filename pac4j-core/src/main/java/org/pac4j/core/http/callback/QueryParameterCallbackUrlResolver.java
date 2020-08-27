@@ -1,5 +1,6 @@
 package org.pac4j.core.http.callback;
 
+import org.pac4j.core.client.config.BaseClientConfiguration;
 import org.pac4j.core.util.Pac4jConstants;
 import org.pac4j.core.context.WebContext;
 import org.pac4j.core.http.url.UrlResolver;
@@ -20,6 +21,12 @@ public class QueryParameterCallbackUrlResolver implements CallbackUrlResolver {
     private Map<String, String> customParams = new HashMap<>();
 
     public QueryParameterCallbackUrlResolver() {
+    }
+
+    public QueryParameterCallbackUrlResolver(final BaseClientConfiguration casConfiguration) {
+        if (casConfiguration.getCustomParams() != null) {
+            this.customParams = casConfiguration.getCustomParams();
+        }
     }
 
     public QueryParameterCallbackUrlResolver(final Map<String, String> customParams) {

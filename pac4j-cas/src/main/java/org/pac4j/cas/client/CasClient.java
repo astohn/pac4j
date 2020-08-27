@@ -57,7 +57,7 @@ public class CasClient extends IndirectClient<TokenCredentials> {
 
     @Override
     protected CallbackUrlResolver newDefaultCallbackUrlResolver() {
-        return new QueryParameterCallbackUrlResolver(configuration.getCustomParams());
+        return new QueryParameterCallbackUrlResolver(configuration);
     }
 
     @Override
